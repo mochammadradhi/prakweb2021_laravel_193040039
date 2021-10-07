@@ -6,6 +6,9 @@ body {
     width: 400px;
 }
 
+.post-img {
+    width: 250px;
+}
 .container {
     text-align: center;
     vertical-align: middle;

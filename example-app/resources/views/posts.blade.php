@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radhi | Blog Page</title>
-</head>
 
-<body>
-    <h1>Hello, Welcome to my blog!</h1>
-</body>
-
-</html>
+@extends('layouts.main')
+@section('container')
+<h1>Posts Page</h1>
+<div class="card text-center">
+    <div class="card-header">
+      Featured Blog
+    </div>
+    @foreach ($posts as $pst)
+    <div class="card-body">
+        <h5 class="card-title"> {{$pst['title']}} </h5>
+        <img src="img/{{$pst['img']}} "  class="post-img mb-4">
+        <p class="card-text blockquote">{{$pst['body']}}</p>
+        <p class="card-text blockquote-footer">{{$pst['author']}}</p>
+        <a href="/posts/{{$pst['slug']}}" class="btn btn-primary">Read More</a>
+      </div>
+    @endforeach
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+@endsection
+ 
