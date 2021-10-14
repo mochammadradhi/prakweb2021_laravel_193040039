@@ -15,10 +15,10 @@
         <p class="card-text blockquote-footer">{{$pst['author']}}</p>
         <a href="/posts/{{$pst['slug']}}" class="btn btn-primary">Read More</a>
       </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
     @endforeach
-    <div class="card-footer text-muted">
-      2 days ago
-    </div>
   </div>
 @endsection
  
