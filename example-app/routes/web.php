@@ -21,7 +21,8 @@ use App\Models\User;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        'active' => 'home'
     ]);
 });
 
@@ -31,6 +32,7 @@ Route::get('/about', function () {
         [
             "title" => "About",
             "name" => "Mochammad Radhi Akbar",
+            'active' => 'about',
             "email" => "193040039@mail.unpas.ac.id",
             "img" => "radhi.gif"
         ]
@@ -48,6 +50,7 @@ Route::get('/categories', function () {
         'categories',
         [
             'title' => 'Post Categories',
+            'active' => 'categories',
             'categories' => Category::all()
         ]
     );
@@ -58,6 +61,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
         'posts',
         [
             'title' => "Post by Category : $category->name",
+            'active' => 'categories',
             'posts' => $category->posts->load('category', 'author')
         ]
     );
@@ -66,6 +70,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 Route::get('/authors/{author:username}', function (User $author) {
     return view('authors', [
         'title' => "Post by Author : $author->name",
+        'active' => 'author',
         'posts' => $author->posts->load('category', 'author'),
     ]);
 });
