@@ -2,7 +2,7 @@
 
 @extends('layouts.main')
 @section('container')
-<h1>Author Posts Page</h1>
+<h1>{{$title}}</h1>
 <div class="card text-center">
     <div class="card-header">
       Featured Author

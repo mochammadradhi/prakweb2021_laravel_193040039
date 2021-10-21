@@ -9,8 +9,8 @@
             <h5 class="card-title"> {{$post->title}} </h5>
             <img src="../img/{{$post->img}} "  class="post-img mb-4" style="width:250px">
             <p class="card-text blockquote">{!! $post->body !!}
-            <p class="card-text blockquote-footer">By {{$post->user->name}} in <a href="/categories/{{$post->category->name}}">{{$post->category->name}}</a></p>
-            <a href="/blog" class="btn btn-primary">Back to Posts</a>
+              <p class="card-text blockquote-footer">By <a href="/authors/{{$post->author->username}}">{{$post->author->name}}</a> in <a href="/categories/{{$post->category->name}}">{{$post->category->name}}</a></p>
+              <a href="/blog" class="btn btn-primary">Back to Posts</a>
           </div>
     </div>
 @endsection
