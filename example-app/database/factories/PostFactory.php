@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class PostFactory extends Factory
 {
@@ -21,8 +22,22 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $rand_img = [
+            'journey.jpg',
+            'summer.jpg',
+            'cold.png',
+            'windy.jpg'
+
+        ];
+
         return [
-            //
+            'title' => $this->faker->sentence(mt_rand(2, 8)),
+            'slug' => $this->faker->slug(),
+            'exrt' => $this->faker->paragraph(),
+            'img'  => $rand_img[mt_rand(1, 4)],
+            'body' => $this->faker->paragraph(mt_rand(5, 10)),
+            'category_id' => mt_rand(1, 2),
+            'user_id' => mt_rand(1, 5)
         ];
     }
 }

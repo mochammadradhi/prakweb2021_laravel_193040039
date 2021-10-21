@@ -12,7 +12,7 @@
         <h5 class="card-title"> {{$pst->title}} </h5>
         <img src="../img/{{$pst->img}} "  class="post-img mb-4" style="width:250px">
         <p class="card-text blockquote">{{$pst->exrt}}</p>
-        <p class="card-text blockquote-footer">By {{$pst->user->name}}</p>
+        <p class="card-text blockquote-footer"><a href="/authors/{{$pst->author->username}}">By {{$pst->author->name}}</a></p>
         <a href="/posts/{{$pst->slug}}" class="btn btn-primary">Read More</a>
       </div>
       <div class="card-footer text-muted">
