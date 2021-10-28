@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
     <div class="container">
-      <a class="navbar-brand" href="#">Radhi Blog</a>
+      <a class="navbar-brand" href="/">Radhi Blog</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -20,6 +20,12 @@
           </li>
           
         </ul>
+        
       </div>
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a href="/login" class="nav-link {{ ($active === "login") ? 'active' : '' }}"> <i class="bi bi-box-arrow-in-right text-light p-2 "></i>Login </a>
+        </li>
+      </ul>
     </div>
   </nav>
