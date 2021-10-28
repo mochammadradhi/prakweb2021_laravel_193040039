@@ -2,8 +2,15 @@
 @section('container')
 <div class="row justify-content-center mt-5">
   <div class="col-md-5">
+    @if(session()->has('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong> {{session('success')}} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+
     <main class="form-signin">
-      <form>
+      <form action="/login" method="GET">
         
         <h1 class="h3 mb-3 fw-normal text-center">Sign in</h1>
     
