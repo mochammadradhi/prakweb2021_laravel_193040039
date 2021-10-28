@@ -12,7 +12,7 @@
         @foreach ($categories as $category)
         <div class="col-md-4 p-4">
           <div class="card bg-dark text-white">
-            <a href="/categories/{{$category->slug}}" class="text-decoration-none">
+            <a href="/blog?category={{$category->slug}}" class="text-decoration-none">
               <img src="https://source.unsplash.com/300x300?{{$category->name}}" class="card-img" alt="...">
               <div class="card-img-overlay d-flex align-items-center p-0">
                 <h5 class="card-title text-center flex-fill p-4 text-dark" style="background-color: rgba(255, 255, 255, 0.4)">{{$category->name}}</h5>
