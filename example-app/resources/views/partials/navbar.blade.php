@@ -23,18 +23,19 @@
 
       <ul class="navbar-nav mx-auto">
       @auth
+      
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Welcome Back, {{ auth()->user()->name }}
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="/dashboard"> <i class="bi bi-layout-text-sidebar-reverse"></i> My Dasboard</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li>
-            <form action="/logout" method="POST">
-              <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i>Logout</button>
-            </form>
-        </ul>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/dashboard"> <i class="bi bi-layout-text-sidebar-reverse"></i> My Dasboard</a>
+          <div class="dropdown-divider"></div>
+          <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+          </form>
+        </div>
       </li>
          @else  
           <li class="nav-item">
