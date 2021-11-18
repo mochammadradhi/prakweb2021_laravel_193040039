@@ -9,6 +9,11 @@
 
     
     <div class="table-responsive">
+        <a href="/dashboard/posts/create" class="btn btn-warning mb-4">
+            <span data-feather="file-plus"></span>
+            Create Post
+          </a>
+          
       <table class="table table-striped table-sm">
         <thead>
           <tr>
