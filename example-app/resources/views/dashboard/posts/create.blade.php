@@ -10,35 +10,47 @@
     <form action="post" action="/dashboard/posts">
         @csrf
         <div class="mb-3">
-            <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title">
-              </div>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{old('title')}}">
+                @error('title')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
         </div>
-
         <div class="mb-3">
-            <div class="form-group">
                <label for="slug">Slug</label>
-               <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
-             </div>
+               <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" disabled readonly required value="{{ old('title') }}">
+               @error('slug')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
         </div>
 
         <div class="mb-3">
-            <div class="form-group">
                <label for="category">Category</label>
                <select class="form-control" name="category_id">
                 <option selected>Open this select menu</option>
                @foreach ($categories as $category)
+               @if(old('category_id') == $category->id )
+               <option value="{{$category->id}}" selected>{{$category->name}}</option>
+               @else
                <option value="{{$category->id}}">{{$category->name}}</option>
+               @endif
                @endforeach
               </select>
-             </div>
         </div>
 
         <div class="mb-3">
             <div class="form-group">
                <label for="body">Body</label>
-               <input id="body" type="hidden" name="body">
+               @error('body')
+               <div class="invalid-feedback">
+                 <p class="text-danget">{{ $message }}</p>
+               </div>
+               @enderror
+               <input id="body" type="hidden" name="body" value="{{ old('body') }}">
                 <trix-editor input="body"></trix-editor>
              </div>
         </div>

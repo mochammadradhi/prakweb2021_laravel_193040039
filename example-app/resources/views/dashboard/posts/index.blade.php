@@ -7,7 +7,12 @@
       
     </div>
 
-    
+    @if (session()->has('success'))
+    <div class="alert alert-sucess" role="alert">
+      {{ session('sucess') }}
+    </div>
+        
+    @endif
     <div class="table-responsive">
         <a href="/dashboard/posts/create" class="btn btn-warning mb-4">
             <span data-feather="file-plus"></span>
