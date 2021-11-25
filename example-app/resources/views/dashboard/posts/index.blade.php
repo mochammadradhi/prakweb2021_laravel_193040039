@@ -29,21 +29,21 @@
           </tr>
         </thead>
         <tbody>
-            @foreach ($posts as $post)    
+            @foreach ($posts as $pst)    
           <tr>
                 
               <td>{{ $loop->iteration}}</td>
-              <td> {{ $post->title }} </td>
-              <td> {{ $post->category->name }} </td>
+              <td> {{ $pst->title }} </td>
+              <td> {{ $pst->category->name }} </td>
               <td>
-                  <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info">
+                  <a href="/dashboard/posts/{{ $pst->slug }}" class="badge bg-info">
                     <span data-feather="eye"></span>
                   </a>
-                  <a href="/dashboard/posts/{{$post->slug}}/edit}" class="badge bg-warning">
+                  <a href="/dashboard/posts/{{ $pst->slug }}/edit" class="badge bg-warning">
                     <span data-feather="edit"></span>
                   </a>
                   
-                  <form action="/dashboard/posts{{$post->slug}}" method="post" class="d-inline">
+                  <form action="/dashboard/posts/{{ $pst->slug }}" method="post" class="d-inline">
                   @method('delete')
                   @csrf
                   <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span></button>

@@ -51,11 +51,11 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">{{$pst->title}}</h5>
-                  <p class="card-text">{{$pst->exrt}}</p>
+                  <h5 class="card-title">{{ $pst->title }}</h5>
+                  <p class="card-text">{{ $pst->exrt }}</p>
                   <p class="card-text blockquote-footer">By <a href="/blog?author={{$pst->author->username}}">{{$pst->author->name}}</a> 
-                    <small class="text-muted"> {{$pst->created_at->diffForHumans()}}</small></p>
-                  <a href="/posts/{{$pst->slug}}" class="btn btn-primary">Read More</a>
+                    <small class="text-muted"> {{ $pst->created_at->diffForHumans() }}</small></p>
+                  <a href="/posts/{{ $pst->slug }}" class="btn btn-primary">Read More</a>
                 </div>
               </div>
             </div>
