@@ -7,12 +7,12 @@
     
   </div>
   <div class="col-lg-8">
-    <form action="post" action="/dashboard/posts{{$post->slug}}">
+    <form method="post" action="/dashboard/posts/{{$post->slug}}">
         @method('put')
         @csrf
         <div class="mb-3">
                 <label for="title">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{old('title'),$post->title}}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{old('title',$post->title)}}">
                 @error('title')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -21,7 +21,7 @@
         </div>
         <div class="mb-3">
                <label for="slug">Slug</label>
-               <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" disabled readonly required value="{{ old('slug'),$post->slug }}">
+               <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"  readonly required value="{{ old('slug',$post->slug)}} ">
                @error('slug')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -48,15 +48,15 @@
                <label for="body">Body</label>
                @error('body')
                <div class="invalid-feedback">
-                 <p class="text-danget">{{ $message }}</p>
+                 <p class="text-danger">{{ $message }}</p>
                </div>
                @enderror
-               <input id="body" type="hidden" name="body" value="{{ old('body'),$post->body  }}">
+               <input id="body" type="hidden" name="body" value="{{ old('body',$post->body)  }}">
                 <trix-editor input="body"></trix-editor>
              </div>
         </div>
         
-        <button type="submit" class="btn btn-primary">Create New Post</button>
+        <button type="submit" class="btn btn-primary">Update New Post</button>
       </form>
   </div>
 

@@ -1,17 +1,16 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<main class="col-md-9  col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1 class="h2">My Posts</h1>
       
     </div>
 
     @if (session()->has('success'))
-    <div class="alert alert-sucess" role="alert">
-      {{ session('sucess') }}
+    <div class="alert alert-success" role="alert">
+      {{ session('success') }}
     </div>
-        
     @endif
     <div class="table-responsive">
         <a href="/dashboard/posts/create" class="btn btn-warning mb-4">

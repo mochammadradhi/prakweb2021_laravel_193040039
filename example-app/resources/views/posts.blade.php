@@ -23,7 +23,14 @@
 
 @if ($posts->count())
 <div class="card mb-3">
-  <img src="https://source.unsplash.com/1200x300/?{{$posts[0]->category->name}}" class="card-img-top" alt="...">
+  @if ($posts[0]->image)
+        <div style="max-height: 350px; overflow:hidden;">
+          <img src="{{asset('storage/' . $posts[0]->image)}}" class="card-img-top" alt="...">
+        </div>
+        @else
+        <img src="https://source.unsplash.com/1200x300/?{{$posts[0]->category->name}}" class="card-img-top" alt="...">
+        @endif
+ 
   <div class="card-body">
     <a href="/posts/{{$posts[0]->slug}}" class="text-decoration-none text-dark"><h5 class="card-title"> {{$posts[0]->title}} </h5></a>
     <p class="card-text blockquote-footer">By <a href="/blog?author={{$posts[0]->author->username}}">{{$posts[0]->author->name}}</a> in <a href="/blog?category={{$posts[0]->category->slug}}">
@@ -47,7 +54,14 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <div class="position-absolute px-3 py-2 text-white " style="background-color: rgba(0,0,0,0.7)"><a href="/blog?category={{$pst->category->slug}}" class="text-decoration-none text-white">{{$pst->category->name}}</a></div>
-                <img src="https://source.unsplash.com/450x750/?{{$pst->category->name}}" class="img-fluid rounded-start" alt="...">
+                @if ($pst->image)
+                <div style="max-height: 350px; overflow:hidden;">
+                  <img src="{{asset('storage/' . $pst->image)}}" class="card-img-top" alt="...">
+                </div>
+                @else
+                <img src="https://source.unsplash.com/450x650/?{{$pst->category->name}}" class="img-fluid rounded-start" alt="...">
+                @endif
+               
               </div>
               <div class="col-md-8">
                 <div class="card-body">

@@ -7,11 +7,11 @@
     
   </div>
   <div class="col-lg-8">
-    <form action="post" action="/dashboard/posts">
+    <form method="post" action="/dashboard/posts" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
                 <label for="title">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{old('title')}}">
+                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"  autofocus value="{{ old('title') }}">
                 @error('title')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -20,13 +20,15 @@
         </div>
         <div class="mb-3">
                <label for="slug">Slug</label>
-               <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" disabled readonly required value="{{ old('slug') }}">
+               <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"  readonly  value="{{ old('slug') }}">
                @error('slug')
                 <div class="invalid-feedback">
                   {{ $message }}
                 </div>
                 @enderror
         </div>
+
+        
 
         <div class="mb-3">
                <label for="category">Category</label>
@@ -43,15 +45,26 @@
         </div>
 
         <div class="mb-3">
-            <div class="form-group">
+          <label for="formFile" class="form-label">Post Image</label>
+          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+          @error('image')
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+        </div>
+
+        <div class="mb-3">
+            <div class="form-group ">
                <label for="body">Body</label>
-               @error('body')
+               
+               <input  class="form-control @error('body') is-invalid @enderror" type="hidden" id="body" name="body" value="{{ old('body') }}">
+                <trix-editor input="body"></trix-editor>
+                @error('body')
                <div class="invalid-feedback">
-                 <p class="text-danget">{{ $message }}</p>
+                 <p class="text-danger">{{ $message }}</p>
                </div>
                @enderror
-               <input id="body" type="hidden" name="body" value="{{ old('body') }}">
-                <trix-editor input="body"></trix-editor>
              </div>
         </div>
         
